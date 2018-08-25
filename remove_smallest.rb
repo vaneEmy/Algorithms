@@ -18,9 +18,9 @@ def remove_smallest(numbers)
   end
 end
 
-new_array = [1, 2, 3, 4, 5]
-new_array2 = [5, 3, 2,4]
+array_one = [1, 2, 3, 4, 5]
+array_two = [5, 3, 2,4]
 empty_array = []
-new_array3 = [2,2, 1,2,1]
+array_three = [2, 2, 1, 2, 1]
 
-puts "El resultado es:", remove_smallest(new_array3)
+puts "The result is: ", remove_smallest(array_three)
