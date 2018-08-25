@@ -1,12 +1,9 @@
-#
-# 
+# The function must return the sum of the array elements.
 
 def simpleArraySum(ar)
     if ar.size > 0
         sum = 0
-        ar.each do |num|
-            sum += num
-        end
+        ar.each { |num| sum += num }
         sum
     else
         ar
