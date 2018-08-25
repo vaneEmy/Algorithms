@@ -1,8 +1,9 @@
 def remove_smallest(numbers)
-  if numbers.size > 0
+  if numbers.empty?
+    numbers
+  else
     smallest_number = numbers[0]
-    new_array = []
-    count = 0
+    new_array, count = [], 0
 
     numbers.each do |number|
       smallest_number = number if smallest_number > number
@@ -11,10 +12,8 @@ def remove_smallest(numbers)
     numbers.each do |num|
       num == smallest_number && count == 0 ? count += 1: new_array << num
     end
-    new_array
 
-  else
-    numbers
+    new_array
   end
 end
 
