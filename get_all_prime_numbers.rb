@@ -25,5 +25,5 @@ end
 
 
 number = 10
-puts "Getting all prime numbers thtat are in the range of 1 to #{number}" 
+puts "Getting all prime numbers that are in the range of 1 to #{number}" 
 all_prime_numbers(number)
