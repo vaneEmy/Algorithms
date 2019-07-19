@@ -1,6 +1,6 @@
 # Return if the given number is prime or not.
 
-def isPrimeNumber(num)
+def is_prime_number(num)
 
     if num <= 1
         return false
@@ -16,4 +16,4 @@ def isPrimeNumber(num)
 end
 
 num = 19
-puts isPrimeNumber(num)
+puts is_prime_number(num)

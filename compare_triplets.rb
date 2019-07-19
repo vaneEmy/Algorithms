@@ -1,6 +1,6 @@
 # Find the comparison points by comparin a[0] with b[0], a[1] with b[1] and so on.
 
-def compareTriplets(a, b)
+def compare_triplets(a, b)
     if !a.empty? && !b.empty?
         new_array = []
         points_from_triplet_one, points_from_triplet_two, count = 0, 0, 0
@@ -17,4 +17,4 @@ def compareTriplets(a, b)
 end
 alice = [5, 6, 7]
 bob = [3, 6, 10]
-puts "The result is: ", compareTriplets(alice, bob)
+puts "The result is: ", compare_triplets(alice, bob)
