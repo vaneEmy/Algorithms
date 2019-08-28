@@ -1,7 +1,7 @@
-const globalTitle = "Winter Is Coming";
+const globalTitle = "   Winter Is     Coming   ";
 
 function urlSlug(title) {
-  let newArr = title.split(/[^A-Za-z]/);
+  let newArr = title.trim().split(/[^A-Za-z]\s*/);
   let finalArr = newArr.join("-").toLowerCase();
   return finalArr;  
 }
