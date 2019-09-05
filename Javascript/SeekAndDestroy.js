@@ -4,6 +4,10 @@
  * Remove all elements from the initial array that are of the same value as these arguments.
  */
 
+ /**
+  * Remove all elements from the initial array (first argument) that are of the same value as the following arguments 
+  * @param {*} arr 
+  */
 function destroyer(arr) {
     let args = [...arguments];
     let firstArr = args[0];

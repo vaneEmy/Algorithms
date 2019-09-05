@@ -1,4 +1,7 @@
-
+/**
+ * Giving a string, it should return the number with commas
+ * @param {*} number 
+ */
 function addingCommas(number){
     let newArr = number.split('');
 

@@ -1,14 +1,27 @@
-var leaf = "", leafs = "", spaces = "";
+/**
+ * Drawing a Christmas tree
+ * @param {*} size 
+ */
 
-for(var i = 1; i <= 10 ; i++){
-  spaces = "";
-  for(var j = 10; j > i; j--){
-    spaces += " ";
+function drawAChristmasTree(size){
+  let leaf = "", leafs = "", spaces = "";
+
+  for(let i = 1; i <= size ; i++){
+    spaces = "";
+    
+    for(let j = size; j > i; j--){
+      spaces += " ";
+    }
+
+    leaf += "*"
+    
+    for(let x = 0; x < i; x++){
+      leafs += "*";
+    }
+
+    console.log(spaces + leaf + leafs)
+    leafs = ""
   }
-  leaf += "*"
-  for(var x = 0; x < i; x++){
-    leafs += "*";
-  }
-  console.log(spaces + leaf + leafs)
-  leafs = ""
 }
+
+drawAChristmasTree(10);
