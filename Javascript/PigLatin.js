@@ -12,16 +12,10 @@
  */
 function translatePigLatin(str) {
     let startsVowel = str.match(/^[a|e|i|o|u]/i);
-    let pigLating; 
-    if(startsVowel === null){
-        pigLating = str.replace(/(\w+?)([aeiou]\w+)/i, '$2$1').concat("ay");
-    }else{
-        pigLating = str.concat("way");
-    }
-    return pigLating;
+    return startsVowel === null ? str.replace(/(\w+?)([aeiou]\w+)/i, '$2$1').concat("ay") : str.concat("way")  
 }
   
-console.log(translatePigLatin("consonant"));
- // translatePigLatin("california");
-  //console.log(translatePigLatin("algorithm"));
+//console.log(translatePigLatin("consonant"));
+ //console.log(translatePigLatin("california"));
+  console.log(translatePigLatin("algorithm"));
   //translatePigLatin("glove");
