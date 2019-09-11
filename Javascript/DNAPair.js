@@ -15,8 +15,7 @@ function pairElement(str) {
     if(str[i] === 'C' || str[i] === 'G'){
         basePair.push(str[i]);
         str[i] === 'C' ? basePair.push('G') : basePair.push('C');  
-    } 
-    if(str[i] === 'T' || str[i] === 'A'){
+    }else{
         basePair.push(str[i]);
         str[i] === 'T' ? basePair.push('A') : basePair.push('T');  
     }
@@ -26,6 +25,6 @@ function pairElement(str) {
   return dna;
 }
   
-  //console.log(pairElement("GCG"));
-  console.log(pairElement("TTGAG"));
+  console.log(pairElement("GCG"));
+  //console.log(pairElement("TTGAG"));
   //console.log(pairElement("CTCTA"));
