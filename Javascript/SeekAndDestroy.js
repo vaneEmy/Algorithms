@@ -15,7 +15,6 @@ function destroyer(arr) {
     let index;
     args.shift();
     
-
     for(let i = 0; i < firstArr.length; i++){
         if(args.includes(firstArr[i]) === true){
             index = newArr.indexOf(firstArr[i]);

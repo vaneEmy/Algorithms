@@ -5,6 +5,10 @@
  * 
  */
 
+ /**
+  * Return the sum of the array of two numbers plus the sum of all the numbers between them. 
+  * @param {*} arr 
+  */
 function sumAll(arr) {
     let sum = 0;
     let max = arr[1] > arr[0] ? arr[1] : arr[0];
