@@ -7,21 +7,24 @@
 
 def firstNotRepeatingCharacter(s)
     characters = s.split("")
+    new_characters = characters.clone
     number_of_characters = 0
+    new_array = []
 
     characters.each do |character|
-        number_of_characters = characters.count(character)
+        number_of_characters = new_characters.count(character)
         if number_of_characters == 1
             return character
+        else
+            new_characters.delete(character)
         end
     end
     "_"
 end
 
-
-puts(firstNotRepeatingCharacter("abacabad"))
-puts(firstNotRepeatingCharacter("abacabaabacaba"))
-puts(firstNotRepeatingCharacter("z"))
-puts(firstNotRepeatingCharacter("bcb"))
-puts(firstNotRepeatingCharacter("bcccccccb"))
-puts(firstNotRepeatingCharacter("abcdefghijklmnopqrstuvwxyziflskecznslkjfabe"))
+puts(firstNotRepeatingCharacter("abacabad")) # Expected output: 'c'
+puts(firstNotRepeatingCharacter("abacabaabacaba")) # Expected output: '_'
+puts(firstNotRepeatingCharacter("z"))  # Expected output: 'z'
+puts(firstNotRepeatingCharacter("bcb")) # Expected output: 'c'
+puts(firstNotRepeatingCharacter("bcccccccb")) # Expected output: '_'
+puts(firstNotRepeatingCharacter("abcdefghijklmnopqrstuvwxyziflskecznslkjfabe")) # Expected output: 'd'
