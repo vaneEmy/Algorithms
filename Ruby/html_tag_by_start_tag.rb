@@ -3,11 +3,8 @@
 # Given the starting HTML tag, find the appropriate end tag which your editor should propose.
 
 def htmlEndTagByStartTag(startTag)
-    regExp = /[^<]\w+/
-    tag = regExp.match(startTag)
-    end_tag = "</#{tag}>"
-    #puts "#{end_tag}"
-    end_tag
+    tag = /[^<]\w*/.match(startTag)
+    "</#{tag}>"
 end
 
 puts(htmlEndTagByStartTag("<div id='my_area' class='data' title='This is a test for title on Div tag'>")) # Expected_tag: "</div>"
@@ -15,3 +12,4 @@ puts(htmlEndTagByStartTag("<button type='button' disabled>")) # Expected_tag: "<
 puts(htmlEndTagByStartTag("<li class='test'>")) # Expected_tag: "</li>"
 puts(htmlEndTagByStartTag("<TABLE border='1'>")) # Expected_tag: "</TABLE>"
 puts(htmlEndTagByStartTag("<html>")) # Expected_tag: "</html>"
+puts(htmlEndTagByStartTag("<i>")) # Expected_tag: "</i>"
