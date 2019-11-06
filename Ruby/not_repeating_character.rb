@@ -9,8 +9,7 @@ def firstNotRepeatingCharacter(s)
     characters = s.split("")
     new_characters = characters.clone
     number_of_characters = 0
-    new_array = []
-
+    
     characters.each do |character|
         number_of_characters = new_characters.count(character)
         if number_of_characters == 1
