@@ -4,16 +4,10 @@
 def rotateImage(a)
     count = 0
     new_image = Array.new(a.size){ Array.new(a.size)}
-    puts "Size: #{a.size}"
-
-
+    
     a.reverse_each do |row|
-        puts "#{row}"
-
         row.each_with_index do |col, index|
-            puts "col: #{col} Index: #{index}, count: #{count}"
             new_image[index][count] = col
-            puts "Matrix[#{index}][#{count}]: #{new_image[count][index]}"
         end
         count += 1
     end
