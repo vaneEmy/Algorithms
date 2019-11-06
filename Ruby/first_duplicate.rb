@@ -15,35 +15,6 @@ def firstDuplicate(a)
         end
     end
     -1 
-    #numbers = a.clone
-    #indexes, search_numbers = [], []
-    #count_number,min_index, count = 0, 0, 0
- 
-    #a.each do |num|
-    #    count_number = numbers.count(num)
-    #    if count_number > 1
-    #        search_numbers.push(num)
-    #        numbers.delete(num)
-    #    end
-    #end
-
-    #if search_numbers.empty?
-    #    return -1
-    #end
-    #for search in search_numbers
-    #    a.each_with_index  do |num, index|
-    #        if num == search 
-    #            count += 1
-    #            min_index = index
-    #            if count > 1
-    #                indexes.push(min_index)
-    #                break
-    #            end    
-    #        end
-    #    end
-    #    count = 0
-    #end
-    #a[indexes.min]
 end
 
 
