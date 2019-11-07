@@ -9,16 +9,16 @@
 # The chatbot should then append this word, along with all the words that follow it in that conversation, to currentConversation.
 #    
 # Return the final state of currentConversation
+require 'set'
 
 def chatBot(conversations, currentConversation)
     count_unique_word, index_conversation = 0, 0
-    unique, final_conversation = [], []    
+    unique, final_conversation = [], [] 
+       
 
     conversations.each_with_index do |conversation, index|
-        #puts "#{conversation.size} and count: #{count_unique_word}"
         unique_array = conversation & currentConversation
-        puts "#{unique_array}"
-
+        
         if  unique_array.size > count_unique_word
             count_unique_word = unique_array.size
             unique = unique_array
@@ -26,17 +26,13 @@ def chatBot(conversations, currentConversation)
         end
     end
 
-    if unique.empty?
-        return currentConversation
-    end
-    puts "unique: #{unique} and count: #{count_unique_word} and index: #{index_conversation}"
-    last_unique_word = unique.last
-    last_unique_word_index = conversations[index_conversation].find_index(last_unique_word)
+    return currentConversation if unique.empty?
     
-    last_words = conversations[index_conversation].drop(last_unique_word_index + 1)
-    puts "Last word: #{last_unique_word}"
-    puts "Last word index: #{last_unique_word_index}"
-    puts "Last words: #{last_words}"
+    unique_conversation =  conversations[index_conversation].uniq
+    last_unique_word = unique.last
+    
+    last_unique_word_index = unique_conversation.find_index(last_unique_word)
+    last_words = unique_conversation.drop(last_unique_word_index + 1)
     final_conversation = currentConversation + last_words
     puts "Current conversation: #{final_conversation}"
 end
@@ -89,3 +85,12 @@ chatBot([
         ["what", "is"])
 
 # Expected_output: ["what", "is", "in", "the", "limo"]
+
+chatBot([
+            ["where","are","you","live","i","live","in","in","new","york"], 
+            ["are","you","going","somewhere","tonight","no","i","am","too","tired","today"], 
+            ["hello","what","is","your","name","my","name","is","john"]
+        ], 
+        ["hello", "john", "do", "you", "have", "a", "favorite", "city", "to", "live", "in", "yes", "it", "is"])
+# Expected output: 
+#  ["hello", "john", "do", "you", "have", "a", "favorite", "city", "to", "live", "in", "yes", "it", "is", "new", "york"]
