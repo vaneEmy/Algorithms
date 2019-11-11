@@ -12,9 +12,9 @@ def alternatingSums(a)
     teams = []
 
     a.each_with_index do |num, index|
-       if index.even?
+       if index.even? # Par
         team_one += num
-       else
+       else # odd - impar
         team_two += num
        end
     end
