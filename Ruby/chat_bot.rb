@@ -11,8 +11,8 @@
 # Return the final state of currentConversation
 require 'set'
 def chatBot(conversations, currentConversation)
-    largest_match_words = 0
-    unique_conversation, match_conversation, unique_conversations = Set.new, Set.new, Set.new
+    largest_match_words, last_words = 0, ''
+    unique_conversations = Set.new
     
     conversations.each { |conversation| unique_conversations.add(Set.new(conversation.to_set)) }
 
@@ -23,26 +23,23 @@ def chatBot(conversations, currentConversation)
 
         if  unique_array.size > largest_match_words
             largest_match_words = unique_array.size
-            match_conversation = unique_array
-            unique_conversation = unique
+            last_unique_word_index = unique.to_a.find_index(unique_array.to_a.last)
+            last_words = unique.to_a.drop(last_unique_word_index + 1)
         end
     end
     
-    return currentConversation if match_conversation.empty?
+    return currentConversation if last_words.empty?
     
-    last_unique_word_index = unique_conversation.to_a.find_index(match_conversation.to_a.last)
-    last_words = unique_conversation.to_a.drop(last_unique_word_index + 1)
-    
-   puts "---------- #{currentConversation + last_words} -------"
+    puts "---------- #{currentConversation + last_words} -------"
 end
 
 
-#chatBot([
-#            ["where","are","you","live","i","live","in","new","york"], 
-#            ["are","you","going","somewhere","tonight","no","i","am","too","tired","today"], 
-#            ["hello","what","is","your","name","my","name","is","john"]
-#        ], 
-#        ["hello", "john", "do", "you", "have", "a", "favorite", "city", "to", "live", "in", "yes", "it", "is"])
+chatBot([
+            ["where","are","you","live","i","live","in","new","york"], 
+            ["are","you","going","somewhere","tonight","no","i","am","too","tired","today"], 
+            ["hello","what","is","your","name","my","name","is","john"]
+        ], 
+        ["hello", "john", "do", "you", "have", "a", "favorite", "city", "to", "live", "in", "yes", "it", "is"])
 # Expected output: 
 #  ["hello", "john", "do", "you", "have", "a", "favorite", "city", "to", "live", "in", "yes", "it", "is", "new", "york"]
 
@@ -55,11 +52,11 @@ puts(chatBot([
           ["can", "you", "please"]))
 # Expected output: ["can", "you", "please"]
 
-chatBot([
-            ["it","is","my","favorite","movie"], 
-            ["really","i","did","not","know"]
-        ], 
-        ["what", "you", "think", "about", "this", "movie"])
+#chatBot([
+#            ["it","is","my","favorite","movie"], 
+#            ["really","i","did","not","know"]
+#        ], 
+#        ["what", "you", "think", "about", "this", "movie"])
 # Expected output: ["what", "you", "think", "about", "this", "movie"]
 
 chatBot([
@@ -74,14 +71,14 @@ chatBot([
         ["beat", "the", "can", "as", "i", "dont", "feel", "thrills"])
 # # Expected output: ["beat", "the", "can", "as", "i", "dont", "feel", "thrills", "need"]
 
- chatBot([
-            ["fame","what","you","like","is","in","the","limo"], 
-            ["fame","what","you","get","is","no","tomorrow"], 
-            ["fame","what","you","need","you","have","to","borrow","fame"], 
-            ["fame","its","mine","its","mine","its","just","his","line"], 
-            ["to","bind","your","time","it","drives","you","to","crime"]
-        ],
-        ["what", "is"])
+ #chatBot([
+ #           ["fame","what","you","like","is","in","the","limo"], 
+ #           ["fame","what","you","get","is","no","tomorrow"], 
+ #           ["fame","what","you","need","you","have","to","borrow","fame"], 
+ #           ["fame","its","mine","its","mine","its","just","his","line"], 
+ #           ["to","bind","your","time","it","drives","you","to","crime"]
+ #       ],
+ #       ["what", "is"])
 # Expected_output: ["what", "is", "in", "the", "limo"]
 
 chatBot([
