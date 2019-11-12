@@ -12,25 +12,18 @@ def sudoku2(grid)
 
     grid.each_with_index do |row, index|
         numbers = Set.new
-        
         row.each_with_index do |column, column_index|
             sudoku[column_index][index] = column.to_i
-            if numbers.include?(column.to_i) && column.to_i != 0
-                return false
-            else
-                numbers.add(column.to_i)   
-            end
+            return false if numbers.include?(column.to_i) && column.to_i != 0
+            numbers.add(column.to_i)   
         end
     end
     
     sudoku.each do |row|
         numbers = Set.new
         row.each do |column|
-            if numbers.include?(column.to_i) && column.to_i != 0
-                return false
-            else
-                numbers.add(column.to_i)   
-            end
+            return false if numbers.include?(column.to_i) && column.to_i != 0
+            numbers.add(column.to_i)   
         end
     end
 
