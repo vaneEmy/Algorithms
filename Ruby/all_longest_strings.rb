@@ -1,21 +1,15 @@
 # Given an array of strings, return another array containing all of its longest strings.
 
 def allLongestStrings(inputArray)
-    longest_strings = Hash.new { |k,v| k[v] = []}
-    longest_size = 0
+    strs = Hash.new { |k,v| k[v] = []}
+    longest = 0
 
-    inputArray.each do |input|
-        if longest_strings.has_key?(input.size)
-            value = longest_strings[input.size]
-            value.push(input)
-        else
-            longest_strings[input.size].push(input)
-        end
-    end
+    inputArray.each { |str| strs.has_key?(str.size) ? strs[str.size].push(str) : strs[str.size].push(str) }
 
-    longest_strings.each_key { |key| longest_size = key if key > longest_size }
+    strs.each_key { |key| longest = key if key > longest }
 
-    longest_strings[longest_size]
+    puts "#{strs[longest]}"
+    strs[longest]
 end
 
 
