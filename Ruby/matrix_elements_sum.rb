@@ -9,10 +9,7 @@ def matrixElementsSum(matrix)
     sum_elements = 0 
     
     matrix.transpose.each do |row|
-        row.each do |column|
-            break if column == 0
-            sum_elements += column        
-        end
+        row.each { |column| column == 0 ? break : sum_elements += column }
     end
     sum_elements
 end
