@@ -5,6 +5,7 @@
 
 def crossingSum(matrix, a, b) 
     sum = 0;
+    
     matrix.each_with_index do |row, index|
         if a == index
             row.each { |x| sum += x}
@@ -13,14 +14,8 @@ def crossingSum(matrix, a, b)
     end
 
     matrix.transpose.each_with_index do |row, index|
-        
         if b == index
-            
-            row.each_with_index do |column, index|
-                if a != index
-                    sum += column
-                end
-            end
+            row.each_with_index { |col, index| sum += col if a != index }
         end
     end
     sum
