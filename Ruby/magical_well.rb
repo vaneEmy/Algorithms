@@ -4,13 +4,12 @@
 # You have n magic marbles. How much money will you make?
 
 def magicalWell(a, b, n)
-    money = 0
-    n.times do |x|
-        money += a*b 
+    (1..n).sum {
+        money = a*b 
         a += 1
         b += 1
-    end
-    money
+        money
+    }
 end
 
 puts(magicalWell(1, 2, 2))  # Expected output:   8
