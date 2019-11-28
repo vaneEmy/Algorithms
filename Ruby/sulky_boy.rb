@@ -3,7 +3,7 @@
 # Find out what the boy will say about the statement you're about to make.
 
 def sulkyBoy(statement)
-    statement == true ? false : true
+    !statement
 end
 
 puts(sulkyBoy(true))
