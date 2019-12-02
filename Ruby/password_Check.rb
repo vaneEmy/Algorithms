@@ -8,12 +8,7 @@
 # Determine whether a given password is complex enough.
 
 def passwordCheck(inputString)
-    arr = [/[A-Z]+/, /[a-z]+/, /[0-9]+/]
-    
-    return false if inputString.size < 5
-    
-    arr.each { |reg| return false if inputString.match(reg) == nil }
-    true
+    inputString.match(/(?=.*[A-Z]+)(?=.*[a-z]+)(?=.*\d).{5,}/) ? true :  false
 end
 
 puts(passwordCheck("my.Password123")) #Expected output: true
