@@ -1,40 +1,5 @@
-## Solved problem of codesignal
+## Solved problem of codesignal: sudoku2
 
-def solution(grid):
-    # Check 3 x 3 sub grids
-    for i in range(0, 9, 3):
-        for j in range(0, 9, 3):
-            one_row = grid[i][j:j+3]
-            second_row = grid[i+1][j:j+3]
-            third_row = grid[i+2][j:j+3]
-            
-            square3x3 = one_row + second_row + third_row
-            
-            if is_duplicated(square3x3):
-                return False
-    
-    # Check horizontal 
-    for i in grid:
-        if is_duplicated(i):
-            return False
-    
-    # Rotate grid to check vertical 
-    rotated_sudoku = []
-    
-    for i in range(9):
-        rotate_row = []
-        for j in grid:
-            rotate_row.append(j[i])    
-        rotated_sudoku.append(rotate_row)
-    
-    # Check vertical 
-    for i in rotated_sudoku:
-        if is_duplicated(i):
-            return False
-    return True
-    
-    
-## Return True if there are two equals numbers in the list
 def is_duplicated(row):
     numbers = set()
     
@@ -46,7 +11,34 @@ def is_duplicated(row):
           
     return False
 
-sudoku = [[".",".",".","1","4",".",".","2","."], 
+def solution(grid):
+    # Check horizontal and vertical
+    for i in range(9):
+        vertical = []
+        horizontal = []
+        for j in range(9):
+            horizontal.append(grid[i][j])
+            vertical.append(grid[j][i])
+                    
+        if is_duplicated(horizontal) or is_duplicated(vertical):
+            return False    
+    
+    # Check 3 x 3 sub grids
+    for i in range(0, 9, 3):
+        for j in range(0, 9, 3):
+            one_row = grid[i][j:j+3]
+            second_row = grid[i+1][j:j+3]
+            third_row = grid[i+2][j:j+3]
+            
+            square = one_row + second_row + third_row
+            
+            if is_duplicated(square):
+                return False
+
+    return True
+
+sudoku = [
+ [".",".",".","1","4",".",".","2","."], 
  [".",".","6",".",".",".",".",".","."], 
  [".",".",".",".",".",".",".",".","."], 
  [".",".","1",".",".",".",".",".","."], 
@@ -56,7 +48,8 @@ sudoku = [[".",".",".","1","4",".",".","2","."],
  [".",".",".",".",".","7",".",".","."], 
  [".",".",".","5",".",".",".","7","."]]
 
-invalid_sudoku = [[".",".","4",".",".",".","6","3","."], 
+invalid_sudoku = [
+ [".",".","4",".",".",".","6","3","."], 
  [".",".",".",".",".",".",".",".","."], 
  ["5",".",".",".",".",".",".","9","."], 
  [".",".",".","5","6",".",".",".","."], 
