@@ -1,3 +1,5 @@
+## Solved problem of codesignal
+
 def solution(grid):
     # Check 3 x 3 sub grids
     for i in range(0, 9, 3):
