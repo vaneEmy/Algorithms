@@ -1,8 +1,8 @@
 ## Solved problem of codesignal: are similar?
 
 def solution(a, b):
-    was_swaped = False
-    swaped_numbers = None
+    was_swapped = False
+    swapped_numbers = None
     
     for ele_a, ele_b in zip(a,b):
         """
@@ -11,22 +11,22 @@ def solution(a, b):
                 2. es la segunda vez y los numeros coinciden -> was_swaped = true
                 3. es la tercera vez o los numeros no coinciden -> return false
         """ 
-        are_diferent = ele_a != ele_b
-        swaped_are_equal = (ele_b, ele_a) == swaped_numbers
+        are_different = ele_a != ele_b
+        swapped_are_equal = (ele_b, ele_a) == swapped_numbers
         
-        if swaped_numbers is None and are_diferent:
-            swaped_numbers = (ele_a, ele_b)
+        if swapped_numbers is None and are_different:
+            swapped_numbers = (ele_a, ele_b)
         elif (
-            swaped_numbers is not None 
-            and are_diferent
-            and swaped_are_equal
-            and not was_swaped
+            swapped_numbers is not None 
+            and are_different
+            and swapped_are_equal
+            and not was_swapped
         ):
-            was_swaped = True
+            was_swapped = True
         elif (
-            swaped_numbers is not None 
+            swapped_numbers is not None 
             and ele_a != ele_b 
-            and (not swaped_are_equal or was_swaped)
+            and (not swapped_are_equal or was_swapped)
         ):
             return False
     
