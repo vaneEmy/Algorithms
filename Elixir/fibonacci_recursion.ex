@@ -1,4 +1,4 @@
-defmodule FibonacciFunctional do
+defmodule FibonacciRecursion do
   @moduledoc """
   The Fibonacci is an infinite sequence of natural numbers in which the two first are 1, 1
   and the following ones are the sum of the two previous numbers
@@ -17,5 +17,5 @@ defmodule FibonacciFunctional do
   end
 end
 
-FibonacciFunctional.fib_series(4) # Returns 3
-FibonacciFunctional.fib_series(7) # Returns 13
+FibonacciRecursion.fib_series(4) # Returns 3
+FibonacciRecursion.fib_series(7) # Returns 13
